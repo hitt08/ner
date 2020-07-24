@@ -2,10 +2,11 @@ from ner import NER
 from flask import Flask
 from flask import request
 from flask import jsonify
+import os
 import json
 
 app = Flask(__name__)
-ner_model=NER("en_core_web_sm")
+ner_model=NER(os.environ['SPACY_MODEL'])
 
 @app.route('/')
 def hello():
